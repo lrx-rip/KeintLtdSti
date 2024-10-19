@@ -158,7 +158,7 @@ end
 
 local UserInputService = game:GetService("UserInputService")
 UserInputService.InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.Q then
+    if input.KeyCode == Enum.KeyCode.V then
         toggleAimbot()
     end
 end)
