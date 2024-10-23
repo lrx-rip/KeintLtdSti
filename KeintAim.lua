@@ -9,7 +9,7 @@ local Holding = false
 _G.AimbotEnabled = true
 _G.TeamCheck = true
 _G.AimPart = "Head"
-_G.Sensitivity = 0 -- Varsayılan hassasiyet (değiştirmedim)
+_G.Sensitivity = 0 -- Varsayılan hassasiyet
 
 _G.CircleSides = 64
 _G.CircleColor = Color3.fromRGB(255, 255, 255)
@@ -37,7 +37,7 @@ local function GetPlayerInFOV()
     for _, v in ipairs(Players:GetPlayers()) do
         if v ~= LocalPlayer and v.Character and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health > 0 then
             if not _G.TeamCheck or v.Team ~= LocalPlayer.Team then
-                -- Oyuncunun bakış yönü ile hedefin konumu arasındaki açıyı kontrol et
+                -- Oyuncunun ekran pozisyonu ve mesafesini al
                 local ScreenPoint = Camera:WorldToScreenPoint(v.Character.HumanoidRootPart.Position)
                 local VectorDistance = (Vector2.new(ScreenPoint.X, ScreenPoint.Y) - MousePosition).Magnitude
 
@@ -92,12 +92,13 @@ local aimbotActive = false
 local function toggleAimbot()
     aimbotActive = not aimbotActive
     if aimbotActive then
-        _G.CircleColor = Color3.fromRGB(0, 255, 0)
+        _G.CircleColor = Color3.fromRGB(0, 255, 0) -- Yeşil
         _G.AimbotEnabled = true
     else
-        _G.CircleColor = Color3.fromRGB(255, 0, 0)
+        _G.CircleColor = Color3.fromRGB(255, 0, 0) -- Kırmızı
         _G.AimbotEnabled = false
     end
+    FOVCircle.Color = _G.CircleColor -- FOV rengini güncelle
 end
 
 UserInputService.InputBegan:Connect(function(input)
