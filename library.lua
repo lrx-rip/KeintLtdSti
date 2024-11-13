@@ -98,11 +98,11 @@ if (library.theme.cursor and Drawing) then
 	end
 end
 library.ConfigSystem = function(self, name)
-	if not isfolder("!LrX") then
-		makefolder("!LrX");
+	if not isfolder("LrX") then
+		makefolder("LrX");
 	end
 	local configSystem = {};
-	configSystem.configFolder = "!LrX/" .. tostring(game.Players.LocalPlayer.Name) .. "";
+	configSystem.configFolder = "LrX/" .. tostring(game.Players.LocalPlayer.Name) .. "";
 	if not isfolder(configSystem.configFolder) then
 		makefolder(tostring(configSystem.configFolder));
 	end
