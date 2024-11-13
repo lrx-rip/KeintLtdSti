@@ -9,7 +9,7 @@ local Holding = false
 _G.AimbotEnabled = true
 _G.TeamCheck = true
 _G.AimPart = "Head"
-_G.Sensitivity = 0 -- Varsayılan hassasiyet
+_G.Sensitivity = 0
 
 _G.CircleSides = 64
 _G.CircleColor = Color3.fromRGB(255, 255, 255)
@@ -29,7 +29,7 @@ FOVCircle.Transparency = _G.CircleTransparency
 FOVCircle.NumSides = _G.CircleSides
 FOVCircle.Thickness = _G.CircleThickness
 
--- Yalnızca FOV içinde ve baktığın yöndeki oyuncuyu hedef alma
+
 local function GetPlayerInFOV()
     local Target = nil
     local MousePosition = UserInputService:GetMouseLocation()
@@ -37,20 +37,19 @@ local function GetPlayerInFOV()
     for _, v in ipairs(Players:GetPlayers()) do
         if v ~= LocalPlayer and v.Character and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health > 0 then
             if not _G.TeamCheck or v.Team ~= LocalPlayer.Team then
-                -- Oyuncunun ekran pozisyonu ve mesafesini al
+
                 local ScreenPoint = Camera:WorldToScreenPoint(v.Character.HumanoidRootPart.Position)
                 local VectorDistance = (Vector2.new(ScreenPoint.X, ScreenPoint.Y) - MousePosition).Magnitude
 
-                -- FOV sınırı içerisinde mi kontrol et
                 if VectorDistance <= _G.CircleRadius then
-                    -- Bakış yönündeki hedefi kontrol et
+
                     local direction = (v.Character.HumanoidRootPart.Position - Camera.CFrame.Position).Unit
                     local lookVector = Camera.CFrame.LookVector
 
                     -- Hedef bakış yönünde mi
                     if lookVector:Dot(direction) > 0 then
                         Target = v
-                        break -- FOV içindeki ilk hedefe kilitlen
+                        break
                     end
                 end
             end
@@ -60,7 +59,7 @@ local function GetPlayerInFOV()
     return Target
 end
 
--- Aimbot kontrol fonksiyonları
+
 UserInputService.InputBegan:Connect(function(Input)
     if Input.UserInputType == Enum.UserInputType.MouseButton2 then
         Holding = true
@@ -74,7 +73,7 @@ UserInputService.InputEnded:Connect(function(Input)
 end)
 
 RunService.RenderStepped:Connect(function()
-    -- FOV çemberini güncelle
+
     FOVCircle.Position = UserInputService:GetMouseLocation()
 
     if Holding and _G.AimbotEnabled then
@@ -86,23 +85,32 @@ RunService.RenderStepped:Connect(function()
     end
 end)
 
--- Aimbot aktif/pasif yapma kısayolu (V tuşu)
+
 local aimbotActive = false
 
 local function toggleAimbot()
     aimbotActive = not aimbotActive
     if aimbotActive then
-        _G.CircleColor = Color3.fromRGB(0, 255, 0) -- Yeşil
+        _G.CircleColor = Color3.fromRGB(0, 255, 0)
         _G.AimbotEnabled = true
     else
-        _G.CircleColor = Color3.fromRGB(255, 0, 0) -- Kırmızı
+        _G.CircleColor = Color3.fromRGB(255, 0, 0)
         _G.AimbotEnabled = false
     end
-    FOVCircle.Color = _G.CircleColor -- FOV rengini güncelle
+    FOVCircle.Color = _G.CircleColor
 end
 
 UserInputService.InputBegan:Connect(function(input)
     if input.KeyCode == Enum.KeyCode.V then
         toggleAimbot()
+    end
+end)
+
+
+UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.P then
+        _G.AimbotEnabled = false
+        FOVCircle.Color = Color3.fromRGB(255, 0, 0)
+        FOVCircle.Visible = false
     end
 end)
