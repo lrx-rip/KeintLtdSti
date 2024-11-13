@@ -22,6 +22,10 @@ tab3:CreateSlider("Hız",16,555,function(a)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = a
 end)
 
+tab3:CreateButton("Rejoin",function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/lrx-rip/KeintLtdSti/refs/heads/main/rejoin.lua"))()
+end)
+
 tab4:CreateButton("HagoGeyint☠️",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/lrx-rip/KeintLtdSti/main/KeintGodMode.lua"))()
 end)
