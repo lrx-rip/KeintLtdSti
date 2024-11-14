@@ -108,7 +108,7 @@ end)
 
 
 UserInputService.InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.P then
+    if input.KeyCode == Enum.KeyCode.KeypadSubtract then
         _G.AimbotEnabled = false
         FOVCircle.Color = Color3.fromRGB(255, 0, 0)
         FOVCircle.Visible = false
