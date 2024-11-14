@@ -7,7 +7,7 @@ local tab = Main:CreateTab("AimSegs")
 local tab3 = Main:CreateTab("Oyuncu")
 local tab4 = Main:CreateTab("Tehlikeli Mekan")
 
-local tab5 = Main:CreateTab("Kurucu İletişim")
+local tab5 = Main:CreateTab("Sekstralar")
 
 tab:CreateButton("AimBot",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/lrx-rip/KeintLtdSti/main/KeintAim.lua"))()
@@ -34,14 +34,8 @@ tab4:CreateButton("☠️ 4380 ☠️",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/lrx-rip/KeintLtdSti/refs/heads/main/rpgkeyint.lua"))()
 end)
 
-tab5:CreateButton("Telegram",function()
-    setclipboard('https://t.me/keintcheck')
-    
-    game.StarterGui:SetCore("SendNotification", {
-        Title = "Başarılı!";
-        Text = "Telegram Linki Kopyalandı.";
-        Duration = 4;
-    })
+tab5:CreateButton("ESP",function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/lrx-rip/KeintLtdSti/refs/heads/main/KeyintESP.lua"))()
 end)
 
 tab:Show()
