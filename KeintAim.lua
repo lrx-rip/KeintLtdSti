@@ -46,7 +46,7 @@ local function GetPlayerInFOV()
                     local direction = (v.Character.HumanoidRootPart.Position - Camera.CFrame.Position).Unit
                     local lookVector = Camera.CFrame.LookVector
 
-                    -- Hedef bakış yönünde mi
+                    
                     if lookVector:Dot(direction) > 0 then
                         Target = v
                         break
