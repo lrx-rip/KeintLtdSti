@@ -101,14 +101,14 @@ local function toggleAimbot()
 end
 
 UserInputService.InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.V then
+    if input.KeyCode == Enum.KeyCode.LeftAlt then
         toggleAimbot()
     end
 end)
 
 
 UserInputService.InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.KeypadSubtract then
+    if input.KeyCode == Enum.KeyCode.RightAlt then
         _G.AimbotEnabled = false
         FOVCircle.Color = Color3.fromRGB(255, 0, 0)
         FOVCircle.Visible = false
