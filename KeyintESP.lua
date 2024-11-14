@@ -116,7 +116,7 @@ end
 
 
 game:GetService("UserInputService").InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.KeypadMultiply then
+    if input.KeyCode == Enum.KeyCode.RightControl then
         ESPenabled = not ESPenabled
         
 
