@@ -2,6 +2,7 @@ local ESPenabled = true
 local COREGUI = game:GetService("CoreGui")
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
 
 local function getRoot(character)
     return character and character:FindFirstChild("HumanoidRootPart")
@@ -11,8 +12,15 @@ local function round(num, numDecimalPlaces)
     return math.floor(num * 10^(numDecimalPlaces or 0)) / 10^(numDecimalPlaces or 0)
 end
 
-local function ESP(plr)
+local function clearESP()
+    for i, v in pairs(COREGUI:GetChildren()) do
+        if v.Name:find("_ESP") then
+            v:Destroy()
+        end
+    end
+end
 
+local function ESP(plr)
     task.spawn(function()
         for i, v in pairs(COREGUI:GetChildren()) do
             if v.Name == plr.Name..'_ESP' then
@@ -20,7 +28,6 @@ local function ESP(plr)
             end
         end
         wait()
-
 
         if plr.Character and plr.Name ~= Players.LocalPlayer.Name and not COREGUI:FindFirstChild(plr.Name..'_ESP') and ESPenabled then
             local ESPholder = Instance.new("Folder")
@@ -43,7 +50,6 @@ local function ESP(plr)
                 end
             end
 
-
             if plr.Character and plr.Character:FindFirstChild('Head') then
                 local BillboardGui = Instance.new("BillboardGui")
                 local TextLabel = Instance.new("TextLabel")
@@ -62,7 +68,7 @@ local function ESP(plr)
                 TextLabel.TextColor3 = Color3.new(1, 1, 1)
                 TextLabel.TextStrokeTransparency = 0
                 TextLabel.TextYAlignment = Enum.TextYAlignment.Bottom
-                TextLabel.Text = 'Name: '..plr.Name
+                TextLabel.Text = 'İsim: '..plr.Name
                 TextLabel.ZIndex = 10
 
                 local espLoopFunc
@@ -95,7 +101,6 @@ local function ESP(plr)
                     end
                 end)
 
-
                 local function espLoop()
                     if COREGUI:FindFirstChild(plr.Name..'_ESP') then
                         if plr.Character and getRoot(plr.Character) and plr.Character:FindFirstChildOfClass("Humanoid") and Players.LocalPlayer.Character and getRoot(Players.LocalPlayer.Character) and Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") then
@@ -115,16 +120,17 @@ local function ESP(plr)
 end
 
 
-game:GetService("UserInputService").InputBegan:Connect(function(input)
+UserInputService.InputBegan:Connect(function(input)
     if input.KeyCode == Enum.KeyCode.RightControl then
         ESPenabled = not ESPenabled
-        
-
         if not ESPenabled then
-            for i, v in pairs(COREGUI:GetChildren()) do
-                if v.Name:find("_ESP") then
-                    v:Destroy()
-                end
+            clearESP()
+        end
+    elseif input.KeyCode == Enum.KeyCode.RightShift then
+        clearESP()
+        for _, plr in pairs(Players:GetPlayers()) do
+            if plr ~= Players.LocalPlayer then
+                ESP(plr)
             end
         end
     end
@@ -137,13 +143,11 @@ for _, plr in pairs(Players:GetPlayers()) do
     end
 end
 
-
 Players.PlayerAdded:Connect(function(plr)
     if plr ~= Players.LocalPlayer then
         ESP(plr)
     end
 end)
-
 
 Players.PlayerRemoving:Connect(function(plr)
     if COREGUI:FindFirstChild(plr.Name..'_ESP') then
