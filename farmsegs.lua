@@ -96,7 +96,8 @@ local partsToIgnore = {
     "Pr. 206",
     "PG-02",
     "Fairmile",
-    "GTE Clothing",
+    "GTE Shirt",
+    "AWP Giver",
 }
 
 local RebirthButtons = {
