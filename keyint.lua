@@ -1,6 +1,6 @@
 local library = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/lrx-rip/KeintLtdSti/main/KeintMain.lua"))()
 
-local Main = library:CreateWindow("KEINT GNG [LrX & HakoKeint]","Crimson")
+local Main = library:CreateWindow("KEINT GNG [LrX & HakoKeyint]","Crimson")
 
 local tab = Main:CreateTab("AimSegs")
 
@@ -34,8 +34,12 @@ tab4:CreateButton("☠️ 4380 ☠️",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/lrx-rip/KeintLtdSti/refs/heads/main/rpgkeyint.lua"))()
 end)
 
-tab5:CreateButton("ESP",function()
+tab5:CreateButton("Legit ESP",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/lrx-rip/KeintLtdSti/refs/heads/main/KeyintESP.lua"))()
+end)
+
+tab5:CreateButton("AutoFarm",function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/lrx-rip/KeintLtdSti/refs/heads/main/farmsegs.lua"))()
 end)
 
 tab:Show()
