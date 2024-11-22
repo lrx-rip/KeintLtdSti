@@ -119,7 +119,7 @@ local partsToIgnore = {
     "Helicopter Storage Research Upgrade",
     "WW2 US Army Pack",
     "AbramsX",
-    "Tank Operations",
+    "Tank Storage",
 }
 
 local RebirthButtons = {
