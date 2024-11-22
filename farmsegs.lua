@@ -113,7 +113,7 @@ local partsToIgnore = {
     "BTR-80",
     "VCAC Mephisto",
     "Javelin Giver",
-    "Barrett M82 Giver",
+    "Barrett M82",
     "JLTV",
 }
 
