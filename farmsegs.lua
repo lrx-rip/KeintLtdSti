@@ -115,6 +115,7 @@ local partsToIgnore = {
     "Javelin Giver",
     "Barrett M82",
     "JLTV",
+    "Mi28 Havoc",
 }
 
 local RebirthButtons = {
@@ -130,6 +131,7 @@ local RebirthButtons = {
     "Helicopters [3 Rebirths]",
     "Planes [7 Rebirths]",
     "Swag Badge",
+    "Easter Egg [10 Rebirths]",
 }
 
 
