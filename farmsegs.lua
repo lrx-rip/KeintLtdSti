@@ -125,7 +125,7 @@ local RebirthButtons = {
     "Vehicle Bay [1 Rebirth]",
     "Tank Unlock Rebirth 6",
     "Vietnam Unlock Rebirth 4",
-    "Ships Start",
+    "Boats [3 Rebirths]",
     "Drone [5 Rebirths]",
     "Helicopters [3 Rebirths]",
     "Planes [7 Rebirths]",
