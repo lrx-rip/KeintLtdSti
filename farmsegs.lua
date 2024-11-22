@@ -98,6 +98,23 @@ local partsToIgnore = {
     "Fairmile",
     "GTE Shirt",
     "AWP Giver",
+    "2x Cash Gamepass",
+    "Speedy Oil Extractor",
+    "MP7 Giver",
+    "USP 45 Giver",
+    "AK12 Giver",
+    "Saiga-12k Giver",
+    "2x Health Armor",
+    "Explosive Sniper Giver",
+    "FAL Heavy Giver",
+    "Desert Eagle Giver",
+    "10k Shield Health Gamepass",
+    "Speedy Humvee",
+    "BTR-80",
+    "VCAC Mephisto",
+    "Javelin Giver",
+    "Barrett M82 Giver",
+    "JLTV",
 }
 
 local RebirthButtons = {
