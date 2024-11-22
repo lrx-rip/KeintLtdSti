@@ -117,6 +117,7 @@ local partsToIgnore = {
     "JLTV",
     "Mi28 Havoc",
     "Helicopter Storage Research Upgrade",
+    "WW2 US Army Pack",
 }
 
 local RebirthButtons = {
