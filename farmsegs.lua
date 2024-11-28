@@ -116,12 +116,9 @@ local partsToIgnore = {
     "Barrett M82",
     "JLTV",
     "Mi28 Havoc",
-    "Helicopter Storage Research Upgrade",
     "WW2 US Army Pack",
     "AbramsX",
-    "Tank Storage",
     "F-35 Lightning",
-    "Plane Storage",
     "FAMAS Group Gun",
 }
 
@@ -139,6 +136,9 @@ local RebirthButtons = {
     "Planes [7 Rebirths]",
     "Swag Badge",
     "Easter Egg [10 Rebirths]",
+    "Helicopter Storage Research Upgrade",
+    "Tank Storage",
+    "Plane Storage",
 }
 
 
